@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import { Socket } from "socket.io-client";
 import { MessageType } from "../../types/message";
@@ -69,14 +69,14 @@ function Chat({ socket, username, room }: Props) {
           type="text"
           value={currentMessage}
           placeholder="Hey..."
-          onChange={(event) => {
-            setCurrentMessage(event.target.value);
+          onChange={(e) => {
+            setCurrentMessage(e.target.value);
           }}
-          onKeyPress={(event) => {
-            event.key === "Enter" && sendMessage();
+          onKeyDown={(e) => {
+            e.key === "Enter" && sendMessage();
           }}
         />
-        <button onClick={sendMessage}>&#9658;</button>
+        <button onClick={sendMessage}></button>
       </div>
     </div>
   );
